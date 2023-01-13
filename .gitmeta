@@ -1,0 +1,4 @@
+chown -h 1000:1000 './weborigin'
+chmod 0777 './weborigin'
+/usr/bin/touch -hcmd "2023-01-13 00:00:01.6265721000 -0300" './weborigin'
+/usr/bin/touch -hcad "2023-01-13 00:00:01.6265721000 -0300" './weborigin'
