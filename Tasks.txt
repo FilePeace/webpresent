@@ -1,3 +1,0 @@
-- install: pip install gdown
-
-- detect if IPFS CID; then detect if google drive URL; none of these? normal wget then

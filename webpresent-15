@@ -1,8 +1,0 @@
-#!/bin/bash
-
-find . -name '*.web*.txt' -type f -exec sh -c '
-for f; do
-   echo "$f"
-   if [[ $file =~ .*\.(txt$|json$) ]]; then echo "Valid";fi
-done' sh {} +
-# from https://stackoverflow.com/a/9394625/5623661 and https://stackoverflow.com/a/74606881/5623661
