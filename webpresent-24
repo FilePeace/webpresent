@@ -1,0 +1,8 @@
+#!/bin/bash
+
+find . -name '*.web*' -type f -exec sh -c '
+for f; do
+   echo "$f"
+   if [ "$(echo ${$(basename "$f")##*.})" = "webpresent" ] || [ "$(echo ${application_file##*.})" = "weborigin" ]; then echo "Valid";fi
+done' sh {} +
+# from https://stackoverflow.com/a/9394625/5623661 and https://stackoverflow.com/a/965069/5623661

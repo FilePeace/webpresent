@@ -1,0 +1,10 @@
+#!/bin/bash
+
+find . -name '*.web*.txt' -type f -exec sh -c '
+for f; do
+   echo "$f"
+   application_file="$(basename "$f")"
+   echo "$application_file"
+   if [ "$(echo ${application_file##*.})" = "webpresent.txt" ] || [ "$(echo ${application_file##*.})" = "weborigin.txt" ]; then echo "Valid";fi
+done' sh {} +
+# from https://stackoverflow.com/a/9394625/5623661 and https://stackoverflow.com/a/965069/5623661

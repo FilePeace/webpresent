@@ -1,0 +1,19 @@
+#!/bin/bash
+
+find . -name '*.web*' -type f -exec sh -c '
+for f; do
+   echo "$f"
+   application_file="$(basename "$f")"
+   if [ "$(echo ${application_file##*.})" = "webpresent" ] || [ "$(echo ${application_file##*.})" = "weborigin" ];
+   then
+if grep -q "$(cat $f)" <<< "drive.google.com" || [ "$(cat $f)" = "weborigin" ];
+   then
+      echo "This is a GoogleDrive or IPFS file!"
+   else
+      wget -N "$f"
+fi
+   else
+      echo "Not a valid .webpresent nor .weborigin file"
+fi
+done' sh {} +
+# from https://stackoverflow.com/a/9394625/5623661, https://stackoverflow.com/a/965069/5623661 and https://linuxize.com/post/how-to-check-if-string-contains-substring-in-bash/

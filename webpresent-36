@@ -1,0 +1,19 @@
+#!/bin/bash
+
+function eachwebpresent {
+echo "Valid"
+}
+
+find . -name '*.web*' -type f
+for f; do
+   echo "$f"
+   application_file="$(basename "$f")"
+   echo ${application_file##*.}
+   if [ "$(echo ${application_file##*.})" = "webpresent" ] || [ "$(echo ${application_file##*.})" = "weborigin" ];
+   then
+      eachwebpresent
+   else
+      echo "Not a valid .webpresent nor .weborigin file"
+fi
+done
+# from https://stackoverflow.com/a/9394625/5623661, https://stackoverflow.com/a/965069/5623661 and https://linuxize.com/post/how-to-check-if-string-contains-substring-in-bash/
