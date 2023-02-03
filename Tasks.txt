@@ -1,0 +1,7 @@
+~ 
+❯ test="https://www.github.com/Floflis/Witchlink.git" && echo ${test##*.}
+git
+
+~ 
+❯ basename "https://www.github.com/Floflis/Witchlink.git"
+Witchlink.git
