@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+rocketlaunch_dir=`pwd` #from https://unix.stackexchange.com/a/52919/470623
 
 function eachwebpresent {
 while IFS="" read -r p || [ -n "$p" ]
@@ -10,7 +10,7 @@ if [[ "$p" == *"drive.google.com"* ]] || ipfs cid validate "$p" >/dev/null 2>&1
       echo "This is a GoogleDrive or IPFS file!"
       if [[ "$p" == *"$SUB"* ]]; then
          cd "$(dirname "${file}")" && gdown "$p"
-         cd "$SCRIPTPATH"
+         cd "$rocketlaunch_dir"
       fi
       if ipfs cid validate "$p"; then
          ipget "$p" -o "$(dirname "${file}")"

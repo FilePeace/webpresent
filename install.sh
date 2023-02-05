@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+rocketlaunch_dir=`pwd` #from https://unix.stackexchange.com/a/52919/470623
 
 echo "Installing webpresent's dependencies..."
 sudo apt install python3-pip
@@ -60,7 +60,7 @@ sudo update-mime-database /usr/share/mime
 echo "Installing icons for .webpresent and .weborigin files..."
 cd include/icons
 cp -r -f --preserve=all . /usr/share/icons/hicolor/scalable/mimetypes/
-cd "$SCRIPTPATH"
+cd "$rocketlaunch_dir"
 sudo gtk-update-icon-cache /usr/share/icons/gnome/ -f
 
 #if [ -f /usr/lib/zombiespices/installer.sh ];then
