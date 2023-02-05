@@ -3,6 +3,7 @@
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
 echo "Installing webpresent's dependencies..."
+sudo apt install python3-pip
 pip install gdown
 
 echo "Installing 'webpresent' syswide..."
@@ -54,13 +55,13 @@ cat > /usr/share/mime/packages/x-weborigin.xml <<EOF
 </mime-info>
 
 EOF
-$maysudo update-mime-database /usr/share/mime
+sudo update-mime-database /usr/share/mime
 
 echo "Installing icons for .webpresent and .weborigin files..."
 cd include/icons
 cp -r -f --preserve=all . /usr/share/icons/hicolor/scalable/mimetypes/
 cd "$SCRIPTPATH"
-$maysudo gtk-update-icon-cache /usr/share/icons/gnome/ -f
+sudo gtk-update-icon-cache /usr/share/icons/gnome/ -f
 
 #if [ -f /usr/lib/zombiespices/installer.sh ];then
 #   echo "- Turning zombiespices' installer.sh into an executable..."
